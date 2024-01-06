@@ -1,0 +1,143 @@
+import Title from "./Title";
+import Image from "./Image";
+import Author from "./Author";
+import "../css/BookPro.css";
+
+const Book = (props) => {
+  const { title, url, author, getBook, id } = props;
+  const getSingleBook = () => {
+    getBook(id);
+  };
+  return (
+    <>
+      <article className="book">
+        <Title title={title} />
+        <Image url={url} />
+        <Author author={author} />
+        <button onClick={getSingleBook}>Click me</button>
+      </article>
+    </>
+  );
+};
+
+export default Book;
+
+
+
+#----------------------------------------------------------
+import Book from "./Book";
+import "../css/BookPro.css";
+
+const books = [
+  {
+    title:
+      "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+    author: "James Clear",
+    url: "./images/atomic_habits.jpg",
+    id: 1,
+  },
+  {
+    title: "First Lie Wins: Reese's Book Club Pick",
+    author: "Ashley Elston",
+    url: "./images/first_life_wins.jpg",
+    id: 2,
+  },
+  {
+    title:
+      "The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics",
+    author: "Daniel James Brown",
+    url: "./images/boys_in_boat.jpg",
+    id: 3,
+  },
+  {
+    title:
+      "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+    author: "James Clear",
+    url: "./images/atomic_habits.jpg",
+    id: 4,
+  },
+  {
+    title: "First Lie Wins: Reese's Book Club Pick",
+    author: "Ashley Elston",
+    url: "./images/first_life_wins.jpg",
+    id: 5,
+  },
+  {
+    title:
+      "The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics",
+    author: "Daniel James Brown",
+    url: "./images/boys_in_boat.jpg",
+    id: 6,
+  },
+];
+
+const BookList = () => {
+  const getBook = (id) => {
+    const book = books.find((book) => book.id === id);
+    console.log(book);
+  };
+  const NewBook = books.map((book) => {
+    //const { title, url, author } = book;
+    return (
+      <Book {...book} key={book.id} getBook={getBook} />
+      //title={title} url={img} author={author}
+    );
+  });
+  console.log(NewBook);
+  return (
+    <>
+      <section className="booklist">{NewBook}</section>
+    </>
+  );
+};
+
+export default BookList;
+
+/*
+
+
+//events example
+const EventExamples = () => {
+  const handleFormInput = (e) => {
+    console.log(e.target);
+    console.log(`input name: ${e.target.name}`);
+    console.log(`input value: ${e.target.value}`);
+  };
+
+  const handleButtonClick = () => {
+    alert("handle click button");
+  };
+
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    console.log("form submitted");
+  };
+  //------------------------------------------
+  return (
+    <section>
+      <form onSubmit={handleFormSubmission}>
+        <h2>Typcal form</h2>
+        <input
+          type="text"
+          name="example"
+          style={{ margin: "1rem 1rem" }}
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+        />
+        <button type="submit">Submit</button>
+        <div></div>
+        <button
+          onClick={() => {
+            alert("handleButtonClick");
+          }}
+          type="button"
+        >
+          Click me
+        </button>
+      </form>
+    </section>
+  );
+};
+
+*/

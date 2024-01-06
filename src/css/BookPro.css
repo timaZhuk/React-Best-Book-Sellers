@@ -1,0 +1,63 @@
+.booklist {
+  width: 90vw;
+  max-width: 1170;
+  margin: 5rem auto;
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .booklist {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+}
+
+.book {
+  background: lavender;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 2rem;
+  position: relative;
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: orange;
+  width: 40px;
+  height: 40px;
+  padding: 0.7rem 0.5rem;
+  border-top-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.header {
+  margin: 2rem auto;
+  text-align: center;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.531);
+}
+
+p {
+  margin-top: auto;
+}
+.picture {
+  display: inline-block;
+  width: 100%;
+  object-fit: cover;
+  background: lavender;
+}
+
+.title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.author {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
